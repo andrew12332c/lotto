@@ -391,6 +391,7 @@
     <div id="megaMillionsNumbers"></div>
     <p>Expected Next Drawing: Tuesday, March 28, 2024</p>
 
+    
     <script>
         function generatePowerballNumbers() {
             var whiteNumbers = [];
@@ -412,8 +413,36 @@
             var numbersContainer = document.getElementById('powerballNumbers');
             numbersContainer.innerHTML = '<h3>White Numbers: ' + whiteNumbers.join(', ') + '</h3>' +
                                          '<h3>Powerball Number: ' + powerballNumber + '</h3>';
+        
+        // Calculate and display the next Powerball drawing date
+            var nextDrawingDate = calculateNextPowerballDrawingDate();
+            var nextDrawingElement = document.getElementById('powerballNextDrawing');
+            nextDrawingElement.innerHTML = 'Expected Next Drawing: ' + nextDrawingDate.toDateString();
         }
 
+        function calculateNextPowerballDrawingDate() {
+            var currentDate = new Date();
+            var dayOfWeek = currentDate.getDay();
+            var daysToAdd;
+
+            // Powerball drawings occur on Wednesdays and Saturdays
+            if (dayOfWeek === 3) { // If today is Wednesday (0-indexed)
+                daysToAdd = 2; // Next drawing is on Saturday
+            } else if (dayOfWeek === 6) { // If today is Saturday (0-indexed)
+                daysToAdd = 3; // Next drawing is on Wednesday next week
+            } else { // Otherwise, find the next drawing based on the current day
+                if (dayOfWeek < 3) {
+                    daysToAdd = 3 - dayOfWeek; // Days until next Wednesday
+                } else {
+                    daysToAdd = 10 - dayOfWeek; // Days until next Saturday
+                }
+            }
+
+            var nextDrawingDate = new Date(currentDate);
+            nextDrawingDate.setDate(nextDrawingDate.getDate() + daysToAdd);
+
+            return nextDrawingDate;
+        }
         function generateMegaMillionsNumbers() {
             var whiteNumbers = [];
             var megaBallNumber;
