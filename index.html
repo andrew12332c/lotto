@@ -81,8 +81,25 @@
         }
         
         function generateMegaMillionsNumbers() {
-            // Function for generating Mega Millions numbers remains unchanged
-            // You can add similar functionality for calculating the next Mega Millions drawing date if needed
+            var whiteNumbers = [];
+            var megaBallNumber;
+
+            // Generate 5 white numbers
+            for (var i = 0; i < 5; i++) {
+                var number = Math.floor(Math.random() * 70) + 1; // Random number between 1 and 70
+                whiteNumbers.push(number);
+            }
+
+            // Generate 1 mega ball number
+            megaBallNumber = Math.floor(Math.random() * 25) + 1; // Random number between 1 and 25
+            
+            // Sort numbers
+            whiteNumbers.sort((a, b) => a - b);
+
+            // Display the generated numbers
+            var numbersContainer = document.getElementById('megaMillionsNumbers');
+            numbersContainer.innerHTML = '<h3>White Numbers: ' + whiteNumbers.join(', ') + '</h3>' +
+                                         '<h3>Mega Ball Number: ' + megaBallNumber + '</h3>';
         }
     </script>
 </body>
