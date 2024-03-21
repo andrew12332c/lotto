@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Numbers Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lottery Numbers Generator</h1>
+    
+    <h2>Powerball Numbers</h2>
+    <button onclick="generatePowerballNumbers()">Generate Powerball Numbers</button>
+    <div id="powerballNumbers"></div>
+
+    <h2>Mega Millions Numbers</h2>
+    <button onclick="generateMegaMillionsNumbers()">Generate Mega Millions Numbers</button>
+    <div id="megaMillionsNumbers"></div>
+
+    <script>
+        function generatePowerballNumbers() {
+            var whiteNumbers = [];
+            var powerballNumber;
+
+            // Generate 5 white numbers
+            for (var i = 0; i < 5; i++) {
+                var number = Math.floor(Math.random() * 69) + 1; // Random number between 1 and 69
+                whiteNumbers.push(number);
+            }
+
+            // Generate 1 powerball number
+            powerballNumber = Math.floor(Math.random() * 26) + 1; // Random number between 1 and 26
+
+            // Display the generated numbers
+            var numbersContainer = document.getElementById('powerballNumbers');
+            numbersContainer.innerHTML = '<h3>White Numbers: ' + whiteNumbers.join(', ') + '</h3>' +
+                                         '<h3>Powerball Number: ' + powerballNumber + '</h3>';
+        }
+
+        function generateMegaMillionsNumbers() {
+            var whiteNumbers = [];
+            var megaBallNumber;
+
+            // Generate 5 white numbers
+            for (var i = 0; i < 5; i++) {
+                var number = Math.floor(Math.random() * 70) + 1; // Random number between 1 and 70
+                whiteNumbers.push(number);
+            }
+
+            // Generate 1 mega ball number
+            megaBallNumber = Math.floor(Math.random() * 25) + 1; // Random number between 1 and 25
+
+            // Display the generated numbers
+            var numbersContainer = document.getElementById('megaMillionsNumbers');
+            numbersContainer.innerHTML = '<h3>White Numbers: ' + whiteNumbers.join(', ') + '</h3>' +
+                                         '<h3>Mega Ball Number: ' + megaBallNumber + '</h3>';
+        }
+    </script>
+</body>
+</html>
