@@ -24,3 +24,7 @@ This web page should work in any modern web browser that supports HTML5 and Java
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Access the Lottery Numbers Generator [here](https://andrew12332c.github.io/lotto/).
