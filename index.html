@@ -17,10 +17,12 @@
     <h2>Powerball Numbers</h2>
     <button onclick="generatePowerballNumbers()">Generate Powerball Numbers</button>
     <div id="powerballNumbers"></div>
+    <p>Expected Next Drawing: Saturday, March 25, 2024</p>
 
     <h2>Mega Millions Numbers</h2>
     <button onclick="generateMegaMillionsNumbers()">Generate Mega Millions Numbers</button>
     <div id="megaMillionsNumbers"></div>
+    <p>Expected Next Drawing: Tuesday, March 28, 2024</p>
 
     <script>
         function generatePowerballNumbers() {
@@ -35,6 +37,9 @@
 
             // Generate 1 powerball number
             powerballNumber = Math.floor(Math.random() * 26) + 1; // Random number between 1 and 26
+            
+            // Sort numbers
+            whiteNumbers.sort((a, b) => a - b);
 
             // Display the generated numbers
             var numbersContainer = document.getElementById('powerballNumbers');
@@ -54,6 +59,9 @@
 
             // Generate 1 mega ball number
             megaBallNumber = Math.floor(Math.random() * 25) + 1; // Random number between 1 and 25
+            
+            // Sort numbers
+            whiteNumbers.sort((a, b) => a - b);
 
             // Display the generated numbers
             var numbersContainer = document.getElementById('megaMillionsNumbers');
